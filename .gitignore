@@ -1,0 +1,31 @@
+# General
+.DS_Store
+*.py[cod]
+
+# IntelliJ IDEA
+*.iml
+.idea
+
+# Directories
+/out
+/*/target
+
+# Configuration
+logFile.log
+elog.xml
+
+# Gradle
+.gradle
+build
+gradle
+/*/sdk
+.gradletasknamecache
+gradlew
+gradlew.bat
+
+
+log
+soa-backup
+
+backList
+miracle-restaurant-server/backList
