@@ -1,15 +1,5 @@
-# General
-.DS_Store
-*.py[cod]
-
-# IntelliJ IDEA
-*.iml
-.idea
-
-# Directories
-/out
-/*/target
-
-
-log
-soa-backup
+/node_modules
+/disc
+npm-debug.log
+/static
+*.DS_Store
