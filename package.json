@@ -1,7 +1,7 @@
 {
-  "name": "dribble-demo",
+  "name": "snake-AI",
   "version": "1.0.0",
-  "description": "A elevator simulation app. Just for fun.",
+  "description": "snake-AI",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/afghl/elevator-simulation.git"
+    "url": "git+https://github.com/afghl/snake-AI.git"
   },
   "author": "afghl",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/afghl/elevator-simulation/issues"
+    "url": "https://github.com/afghl/snake-AI/issues"
   },
-  "homepage": "https://github.com/afghl/elevator-simulation#readme",
+  "homepage": "https://github.com/afghl/snake-AI#readme",
   "dependencies": {
     "babel-polyfill": "^6.3.14",
     "css-loader": "^0.23.1",
