@@ -1,9 +1,5 @@
 import 'babel-polyfill'
 import './sass/main.scss'
+import { initSnakeGame } from './game/SnakeGame'
 
-
-const t = () => {
-  return 'a'
-}
-
-console.log(t())
+initSnakeGame(5).start(1000)

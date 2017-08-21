@@ -1,31 +1,36 @@
-import './PlayGound'
+import render from './render'
 
 class SnakeGame {
-    start(interval): {
+    start(interval) {
+        console.log('start');
+        setInterval(this.getStateAndRender, interval)
 
-    },
-
-    setPlayGound(size): {
-        this.playGround = new PlayGound(size)
-        return this
     }
 
-    initGameState(size): {
+    initGameState(ground) {
         this.gameState = {
+            test: 1,
             gameover: false,
-            size: size,
+            ground: ground,
             snake: [],
             item: null,
             itemEaten: false,
             delta: null,
-            calculating: false,
+            calculating: false
         }
+    }
+
+    getStateAndRender() {
+        const state = this.state
+
+
+        render(state)
     }
 }
 
-const initSnakeGame = (size) => {
-    game = new SnakeGame
-    game.setPlayGound(size)
-        .initGameState(size)
+export const initSnakeGame = (size) => {
+    const game = new SnakeGame
+    console.log(game);
+    game.initGameState(size)
     return game
 }
