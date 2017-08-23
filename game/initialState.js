@@ -21,5 +21,5 @@ export default (ground) => {
     const snake = generateSnake(ground)
     const item = generateItem(ground, snake)
 
-    return merge({ground, snake, item}, defaults)
+    return merge({ ground, snake, item }, defaults)
 }

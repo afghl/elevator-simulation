@@ -1,14 +1,15 @@
-import render from './render'
+import { render } from './render'
 import { calc } from './calc'
 import initialState from './initialState'
 
 class SnakeGame {
     constructor() {
-        this.handleState = this.handleState.bind(this)
         this.calNextStep = this.calNextStep.bind(this)
+        this.handleState = this.handleState.bind(this)
     }
 
     start(interval) {
+
         setInterval(this.handleState, interval)
     }
 
@@ -25,7 +26,7 @@ class SnakeGame {
 
     handleState() {
         const state = this.gameState
-        
+
         render(state)
     }
 }
