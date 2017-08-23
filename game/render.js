@@ -10,9 +10,11 @@ export const renderGround = (ground) => {
     $ground.height(POINT_SIZE * ground)
 
     const $grids = $('#grids')
-    times(ground, (row) => {
-        times(ground, (col) => {
-            const $grid = $(`<div id="grid-${row}-${col}" class="grid">[${row}, ${col}]</div>`)
+    times(ground, (col) => {
+        times(ground, (row) => {
+            const x = row
+            const y = ground - 1 - col
+            const $grid = $(`<div id="grid-${x}-${y}" class="grid">[${x}, ${y}]</div>`)
             $grid.width(POINT_SIZE)
             $grid.height(POINT_SIZE)
             $grids.append($grid)
@@ -21,8 +23,13 @@ export const renderGround = (ground) => {
 }
 
 export const render = ({ snake, item }) => {
+    clear()
     renderSnake(snake)
     renderItem(item)
+}
+
+const clear = () => {
+    $('.grid').removeClass('snake')
 }
 
 const renderSnake = (snake) => {
