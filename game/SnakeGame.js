@@ -2,7 +2,7 @@ import { render, renderGround } from './render'
 import { calc } from './calc'
 import initialState from './initialState'
 import {
-    move, eat, getItem
+    detectGameOver, move, eat, getItem
 } from './handleState'
 
 class SnakeGame {
@@ -39,6 +39,13 @@ class SnakeGame {
 
     handleState() {
         let state = this.gameState
+        state = detectGameOver(state)
+
+        if (state.gameover) {
+            alert('gameover!')
+            return
+        }
+        
         state = move(state)
         state = eat(state)
         state = getItem(state)

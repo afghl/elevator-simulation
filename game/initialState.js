@@ -16,7 +16,7 @@ const generateSnake = (ground) => {
 }
 
 const generateItem = (ground, snake) => {
-    return [9, 4]
+    return generatePoint(ground, snake)
 }
 
 export default (ground) => {
