@@ -1,36 +1,38 @@
 import render from './render'
+import { calc } from './calc'
+import initialState from './initialState'
 
 class SnakeGame {
-    start(interval) {
-        console.log('start');
-        setInterval(this.getStateAndRender, interval)
+    constructor() {
+        this.handleState = this.handleState.bind(this)
+        this.calNextStep = this.calNextStep.bind(this)
+    }
 
+    start(interval) {
+        setInterval(this.handleState, interval)
+    }
+
+    calNextStep() {
+        // TODO: detect calculating
+        nextStep = calc(state)
+        // TODO: immutable
+        this.gameState.delta = nextStep
     }
 
     initGameState(ground) {
-        this.gameState = {
-            test: 1,
-            gameover: false,
-            ground: ground,
-            snake: [],
-            item: null,
-            itemEaten: false,
-            delta: null,
-            calculating: false
-        }
+        this.gameState = initialState(ground)
     }
 
-    getStateAndRender() {
-        const state = this.state
-
-
+    handleState() {
+        const state = this.gameState
+        
         render(state)
     }
 }
 
 export const initSnakeGame = (size) => {
     const game = new SnakeGame
-    console.log(game);
     game.initGameState(size)
+
     return game
 }
