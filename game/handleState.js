@@ -1,11 +1,11 @@
 import clone from 'lodash/clone'
 import { pointEqual, generatePoint } from './tool'
-import { touchSelf, touchGround } from './gameRules'
+import { touchSelf, touchBound } from './gameRules'
 
 export const detectGameOver = (state) => {
     const { ground, snake } = state
 
-    if (touchSelf(snake) || touchGround(ground, snake)) {
+    if (touchSelf(snake) || touchBound(ground, snake)) {
         const newState = clone(state)
         newState.gameover = true
         return newState

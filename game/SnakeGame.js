@@ -42,10 +42,9 @@ class SnakeGame {
         state = detectGameOver(state)
 
         if (state.gameover) {
-            alert('gameover!')
             return
         }
-        
+
         state = move(state)
         state = eat(state)
         state = getItem(state)

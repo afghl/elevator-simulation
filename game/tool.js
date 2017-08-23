@@ -11,12 +11,12 @@ export const generatePoint = (size, blackList) => {
         return null
     }
 
-    while (true) {
-        const point = [rand(size), rand(size)]
-        if (!contains(blackList, point)) {
-            return point
-        }
-    }
+    let point
+    do {
+        point = [rand(size), rand(size)]
+    } while (contains(blackList, point))
+
+    return point
 }
 
 const rand = (r) => Math.floor(Math.random() * r)

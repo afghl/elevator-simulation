@@ -2,30 +2,36 @@ import $ from 'jquery'
 import times from 'lodash/times'
 import each from 'lodash/each'
 
-const POINT_SIZE = 40
+const POINT_SIZE = 20
 
 export const renderGround = (ground) => {
-    const $ground = $('#root')
-    $ground.width(POINT_SIZE * ground)
-    $ground.height(POINT_SIZE * ground)
-
-    const $grids = $('#grids')
-    times(ground, (col) => {
-        times(ground, (row) => {
-            const x = row
-            const y = ground - 1 - col
-            const $grid = $(`<div id="grid-${x}-${y}" class="grid">[${x}, ${y}]</div>`)
-            $grid.width(POINT_SIZE)
-            $grid.height(POINT_SIZE)
-            $grids.append($grid)
-        })
-    })
+    renderBackground(ground)
+    renderGrid(ground)
 }
 
 export const render = ({ snake, item }) => {
     clear()
     renderSnake(snake)
     renderItem(item)
+}
+
+const renderBackground = (ground) => {
+    const $ground = $('#root')
+    $ground.width(POINT_SIZE * ground)
+    $ground.height(POINT_SIZE * ground)
+}
+
+const renderGrid = (ground) => {
+    const $grids = $('#grids')
+
+    for (let y = ground - 1; y >= 0; y--) {
+        for (let x = 0; x < ground; x++) {
+            const $grid = $(`<div id="grid-${x}-${y}" class="grid">[${x}, ${y}]</div>`)
+            $grid.width(POINT_SIZE)
+            $grid.height(POINT_SIZE)
+            $grids.append($grid)
+        }
+    }
 }
 
 const clear = () => {

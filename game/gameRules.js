@@ -6,7 +6,7 @@ export const touchSelf = (snake) => {
     return contains(body, head)
 }
 
-export const touchGround = (ground, snake) => {
+export const touchBound = (ground, snake) => {
     const head = getHead(snake)
     const bound = ground - 1
 
