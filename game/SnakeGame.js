@@ -2,7 +2,7 @@ import { render, renderGround } from './render'
 import { calc } from './calc'
 import initialState from './initialState'
 import {
-    move, eat
+    move, eat, getItem
 } from './handleState'
 
 class SnakeGame {
@@ -21,9 +21,16 @@ class SnakeGame {
     calNextStep() {
         // TODO: detect calculating
         const state = this.gameState
+        if (state.calculating) {
+            return
+        }
+
+        state.calculating = true
+
         const nextStep = calc(state)
-        // TODO: immutable
         this.gameState.delta = nextStep
+
+        state.calculating = false
     }
 
     initGameState(ground) {
@@ -34,11 +41,17 @@ class SnakeGame {
         let state = this.gameState
         state = move(state)
         state = eat(state)
+        state = getItem(state)
         render(state)
+        this.updateState(state)
     }
 
     _calcInterval(ground, interval) {
         return interval / 2
+    }
+
+    updateState(state) {
+        this.gameState = state
     }
 }
 

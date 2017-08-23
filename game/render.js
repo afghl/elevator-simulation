@@ -29,7 +29,7 @@ export const render = ({ snake, item }) => {
 }
 
 const clear = () => {
-    $('.grid').removeClass('snake')
+    $('.grid').removeClass('snake').removeClass('item')
 }
 
 const renderSnake = (snake) => {

@@ -1,4 +1,5 @@
 import merge from 'lodash/merge'
+import { generatePoint } from './tool'
 
 const defaults = {
     gameover: false,
@@ -10,12 +11,12 @@ const defaults = {
 
 const generateSnake = (ground) => {
     return [
-        [2, 4], [2, 3], [2, 2], [2, 1], [2, 0]
+        [2, 4], [2, 3]
     ]
 }
 
 const generateItem = (ground, snake) => {
-    return [3, 3]
+    return [9, 4]
 }
 
 export default (ground) => {
