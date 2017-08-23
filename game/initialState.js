@@ -4,6 +4,7 @@ const defaults = {
     gameover: false,
     itemEaten: false,
     delta: null,
+    tail: null,
     calculating: false
 }
 
