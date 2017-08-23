@@ -1,4 +1,4 @@
-import { render } from './render'
+import { render, renderGround } from './render'
 import { calc } from './calc'
 import initialState from './initialState'
 
@@ -9,7 +9,8 @@ class SnakeGame {
     }
 
     start(interval) {
-
+        const { ground } = this.gameState
+        renderGround(ground)
         setInterval(this.handleState, interval)
     }
 
